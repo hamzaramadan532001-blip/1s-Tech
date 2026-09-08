@@ -1,0 +1,206 @@
+.siteHeader {
+  position: relative;
+  width: 100%;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+}
+
+.langSwitcher {
+  position: relative;
+}
+
+.langSwitcherBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.langDropdown {
+  position: absolute;
+  top: 100%;
+  inset-inline-start: 0;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0;
+  min-width: 150px;
+  z-index: 1002;
+}
+
+.langDropdown li button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-align: start;
+}
+
+.langDropdown li button:hover {
+  background: #f5f5f5;
+}
+
+.langFlag svg {
+  width: 20px;
+  height: auto;
+}
+
+/* ===== Hamburger button ===== */
+
+.hamburgerBtn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburgerBtn.isOpen .hamburgerLine:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background-color: #fff;
+}
+
+.hamburgerBtn.isOpen .hamburgerLine:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerBtn.isOpen .hamburgerLine:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background-color: #fff;
+}
+
+/* ===== Mobile responsive ===== */
+
+@media (max-width: 768px) {
+  .hamburgerBtn {
+    display: flex;
+  }
+
+  .mainNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 100vh;
+    background: #0a0e1a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    padding-top: 90px;
+    padding-bottom: 2rem;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .mainNav.mobileOpen {
+    transform: translateY(0);
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0 1.5rem;
+  }
+
+  /* ===== Language on mobile ===== */
+
+  .langSwitcher {
+    width: 100%;
+  }
+
+  .langSwitcherBtn {
+    width: 100%;
+    justify-content: flex-start;
+    color: #fff;
+  }
+
+  .langCurrent,
+  .chevron {
+    color: #fff;
+  }
+
+  .langDropdown {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    margin: 0.5rem 0 0;
+    padding: 0.25rem 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .langDropdown li {
+    width: 100%;
+  }
+
+  .langDropdown li button {
+    width: 100%;
+    color: #fff;
+    padding: 0.5rem 0;
+    justify-content: flex-start;
+    background: transparent;
+  }
+
+  .langDropdown li button:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .langFlag {
+    display: flex;
+    align-items: center;
+  }
+
+  .langFlag svg {
+    width: 18px;
+    height: auto;
+  }
+}

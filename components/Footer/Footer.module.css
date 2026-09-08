@@ -1,0 +1,386 @@
+.footer {
+  background: linear-gradient(180deg, #0a0e1a 0%, #141b2d 50%, #1a2338 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 60px 20px 20px;
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Background Decorations */
+.decoration1,
+.decoration2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.decoration1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  background: radial-gradient(circle, #3b82f6, transparent);
+}
+
+.decoration2 {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -50px;
+  background: radial-gradient(circle, #8b5cf6, transparent);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Brand Column */
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoIcon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.logoIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.logoText {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.brandDesc {
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+/* Newsletter */
+.newsletter {
+  margin-top: 4px;
+}
+
+.newsletterTitle {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 10px;
+  max-width: 350px;
+}
+
+.newsletterInput {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.newsletterInput::placeholder {
+  color: #64748b;
+}
+
+.newsletterInput:focus {
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.newsletterButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.newsletterButton:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+}
+
+.newsletterButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Social */
+.social {
+  margin-top: 4px;
+}
+
+.socialLabel {
+  display: block;
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 12px;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  transform: translateY(-3px);
+}
+
+.socialIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Links Columns */
+.linksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columnTitle {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.link:hover {
+  color: #60a5fa;
+  transform: translateX(-4px);
+}
+
+/* Contact Column */
+.contactColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.contactItem:hover {
+  color: #60a5fa;
+}
+
+.contactItem svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.contactItem:hover svg {
+  opacity: 1;
+}
+
+/* Bottom Bar */
+.bottomBar {
+  margin-top: 20px;
+}
+
+.bottomLine {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  margin-bottom: 20px;
+}
+
+.bottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.copyright {
+  color: #64748b;
+  font-size: 13px;
+  margin: 0;
+}
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bottomLink {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.bottomLink:hover {
+  color: #94a3b8;
+}
+
+.bottomDivider {
+  color: #1e293b;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 16px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .brandDesc {
+    max-width: 100%;
+  }
+
+  .newsletterForm {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .newsletterButton {
+    justify-content: center;
+  }
+
+  .bottomContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bottomLinks {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoText {
+    font-size: 20px;
+  }
+
+  .logoIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logoIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .socialIcons {
+    flex-wrap: wrap;
+  }
+
+  .columnTitle {
+    font-size: 15px;
+  }
+}

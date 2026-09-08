@@ -1,0 +1,469 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+* {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+/* أو اجعل فقط العناصر داخل ServicesSection */
+.services-section * {
+  font-family: 'Cairo', sans-serif !important;
+}
+html,
+body {
+  height: auto;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif;
+  background: #fff;
+  color: #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+}
+
+/* ---------- Navigation ---------- */
+
+.main-nav > ul {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.main-nav a {
+  font-size: 17px;
+  color: #d7dce5;
+  transition: color 0.2s ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #ffffff;
+  border-bottom-color: #3b82f6;
+  font-size: 18px;
+}
+
+/* ---------- Page placeholder ---------- */
+
+.page-placeholder {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 140px 20px 60px;
+  background: #0b1220;
+}
+
+.page-placeholder h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.page-placeholder p {
+  margin-top: 12px;
+  color: #9aa3b2;
+  font-size: 16px;
+}
+
+/* ---------- Home Hero ---------- */
+/* شيلنا direction: rtl الثابتة، وخلينا الاتجاه بيتوارث من dir بتاع <html>
+   (اللي بيتحط ديناميكيًا من LanguageContext). واستخدمنا logical properties
+   عشان الـ padding والمحاذاة يتقلبوا لوحدهم مع تغيير اللغة */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-block: 120px 60px;
+  padding-inline: 12% 20px;
+  text-align: start;
+}
+
+/* ---------- Hero Headings ---------- */
+
+.hero h1 {
+  width: 65%;
+  max-width: 850px;
+
+  font-family: "Cairo", sans-serif;
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1.15;
+
+  margin-bottom: 16px;
+
+  color: #ffffff;
+}
+
+.hero h2 {
+  width: 65%;
+  max-width: 850px;
+
+  font-family: "Cairo", sans-serif;
+  font-size: 60px;
+  font-weight: 200;
+  line-height: 1.3;
+
+  color: #d7dce5;
+
+  margin-bottom: 24px;
+}
+
+.hero p {
+  width: 65%;
+  max-width: 850px;
+
+  color: #d7dce5;
+  font-size: 16px;
+
+  margin-bottom: 28px;
+}
+
+/* ---------- Hero Buttons ---------- */
+/* شيلنا direction: rtl الثابتة، وسيبنا flex-start يتبع اتجاه الصفحة لوحده */
+
+.hero-actions {
+  width: 65%;
+  max-width: 850px;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 16px;
+
+  margin-top: 8px;
+}
+
+/* ---------- Primary Button ---------- */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #3b82f6;
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  padding: 14px 28px;
+
+  border-radius: 999px;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* ---------- Phone Button ---------- */
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+
+  background: #3b82f6;
+  color: #ffffff;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-icon:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 32px;
+  text-align: center;
+  color: #9aa3b2;
+  font-size: 14px;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1024px) {
+  .hero {
+    padding-inline: 20px 8%;
+  }
+
+  .hero h1,
+  .hero h2,
+  .hero p,
+  .hero-actions {
+    width: 70%;
+  }
+
+  .hero h1 {
+    font-size: 60px;
+  }
+
+  .hero h2 {
+    font-size: 48px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero {
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 20px 60px;
+
+    text-align: center;
+  }
+
+  .hero h1,
+  .hero h2,
+  .hero p,
+  .hero-actions {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero h2 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .btn-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .btn-primary {
+    font-size: 14px;
+    padding: 12px 22px;
+  }
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .btn-primary {
+    padding: 11px 18px;
+  }
+}
+
+/* ---------- Language Switcher ---------- */
+
+.lang-switcher {
+  position: relative;
+  list-style: none;
+}
+
+.lang-switcher-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  background: transparent;
+  border: none;
+
+  color: #d7dce5;
+
+  font-size: 17px;
+  font-family: inherit;
+
+  cursor: pointer;
+  padding: 0;
+
+  transition: color 0.2s ease;
+}
+
+.lang-switcher-btn:hover {
+  color: #ffffff;
+}
+
+.lang-current {
+  white-space: nowrap;
+}
+
+.chevron {
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* ---------- Dropdown ---------- */
+/* inset-inline-end بدل right: بتبقى شمال تلقائيًا في صفحات LTR */
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 42px);
+  inset-inline-end: 0;
+
+  width: 180px;
+
+  margin: 0;
+  padding: 0;
+
+  background: #fdf6ec;
+
+  list-style: none;
+
+  border-radius: 6px;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+  z-index: 100;
+
+  display: block;
+}
+
+.lang-dropdown li {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.lang-dropdown li button {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  background: transparent;
+  border: none;
+
+  color: #1a1a1a;
+
+  font-size: 16px;
+  font-family: inherit;
+
+  cursor: pointer;
+
+  /* اسم اللغة والعلم بيفضلوا بنفس الترتيب دايمًا بغض النظر عن اتجاه الصفحة */
+  direction: ltr;
+}
+
+.lang-name {
+  flex: 1;
+  text-align: left;
+}
+
+.lang-flag {
+  width: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+.lang-dropdown li button:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.lang-dropdown li + li {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile — توسيط فيزيائي مش متأثر باتجاه الصفحة */
+
+@media (max-width: 768px) {
+  .lang-dropdown {
+    top: calc(100% + 20px);
+    inset-inline-end: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

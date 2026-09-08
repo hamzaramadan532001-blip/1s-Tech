@@ -1,0 +1,83 @@
+.container {
+  --s: 180px;
+  --d: 20s;
+  --n: 6;
+
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+
+  padding: 40px 0;
+  background: linear-gradient(135deg, #0a0e1a 0%, #141b2d 50%, #1a2338 100%);
+
+ 
+}
+
+.logo {
+  width: var(--s);
+  min-width: var(--s);
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 32px;
+
+  flex-shrink: 0;
+
+  background: #f4f5f7;
+  border-radius: 10px;
+offset-rotate: 0deg;
+  /*
+   * الحركة من الشمال إلى اليمين
+   */
+  offset-path: shape(
+    from calc(100% + var(--s) / 2) 50%,
+    hline by calc(
+      sibling-count() * max(
+        100% / var(--n),
+        var(--s) + 32px
+      ) * -1
+    )
+  );
+
+  animation:
+    marquee var(--d) linear infinite
+    calc(
+      -1 * sibling-index() * var(--d) / sibling-count()
+    );
+}
+
+.logo img {
+  width: auto;
+  height: auto;
+
+  max-width: 75%;
+  max-height: 70%;
+
+  object-fit: contain;
+}
+
+@keyframes marquee {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.container:hover .logo {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .container {
+    --s: 140px;
+    --d: 18s;
+    --n: 3;
+  }
+
+  .logo {
+    height: 80px;
+    margin-right: 20px;
+  }
+}

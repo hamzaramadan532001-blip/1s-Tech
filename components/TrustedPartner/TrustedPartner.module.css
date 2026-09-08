@@ -1,0 +1,266 @@
+.section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0a0e1a 0%, #141b2d 50%, #1a2338 100%);
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Background Decorations */
+.decoration1,
+.decoration2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.decoration1 {
+  width: 400px;
+  height: 400px;
+  top: -150px;
+  right: -150px;
+  background: radial-gradient(circle, #3b82f6, transparent);
+}
+
+.decoration2 {
+  width: 350px;
+  height: 350px;
+  bottom: -100px;
+  left: -100px;
+  background: radial-gradient(circle, #8b5cf6, transparent);
+}
+
+/* Header with Badge */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 24px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 32px;
+  font-weight: 300;
+  color: #94a3b8;
+  margin: 8px 0 0;
+}
+
+/* ✅ تم حذف .topRule بالكامل */
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr minmax(220px, 320px) minmax(280px, 380px);
+  align-items: center;
+  gap: 48px;
+}
+
+/* right column: paragraph + CTA */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  padding: 0 24px;
+}
+
+.paragraph {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 2;
+  color: #94a3b8;
+  max-width: 480px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+}
+
+.ctaIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* middle column: image */
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* left column: feature list */
+.featureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+
+.iconCircle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+  color: #60a5fa;
+  transition: all 0.3s ease;
+}
+
+.iconCircle:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(139, 92, 246, 0.25));
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 24px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .imageWrap {
+    max-width: 320px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .featureItem {
+    justify-content: center;
+  }
+
+  .paragraph {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 16px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .about {
+    padding: 0;
+  }
+
+  .featureList {
+    gap: 28px;
+  }
+
+  .featureItem {
+    gap: 14px;
+  }
+
+  .iconCircle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .paragraph {
+    font-size: 15px;
+  }
+
+  .ctaButton {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+}
