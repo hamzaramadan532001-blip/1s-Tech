@@ -1,33 +1,65 @@
+/* النافبار ثابت فوق المحتوى وانت بتعمل سكرول */
 .siteHeader {
-  position: relative;
-  width: 100%;
+  position  : sticky;
+  top       : 0;
+  z-index   : 1000;
+  width     : 100%;
+  background: var(--header-bg);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* بعد ما المستخدم ينزل شوية: ظل خفيف وخط تحت عشان يبان منفصل عن المحتوى.
+   (مش بنحط backdrop-filter على الهيدر نفسه عشان ما يبوظش قائمة الموبايل
+   اللي معمولة position: fixed جواه) */
+.scrolled {
+  border-bottom-color: var(--divider);
+  box-shadow: 0 8px 30px var(--shadow-medium);
 }
 
 .headerInner {
-  display: flex;
-  align-items: center;
+  display        : flex;
+  align-items    : center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  padding        : 1rem 1.5rem;
 }
 
 .logo {
-  display: flex;
+  display    : flex;
   align-items: center;
-  z-index: 1001;
+  z-index    : 1001;
+}
+
+.mainNav {
+  background: var(--header-bg);
 }
 
 .navList {
-  display: flex;
+  display    : flex;
   align-items: center;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap        : 1.5rem;
+  list-style : none;
+  margin     : 0;
+  padding    : 0;
+  background : transparent;
 }
 
 .navItem {
-  display: flex;
+  display    : flex;
   align-items: center;
+}
+
+.navItem a {
+  color          : var(--text-primary);
+  text-decoration: none;
+  transition     : color 0.2s ease;
+}
+
+.navItem a:hover {
+  color: var(--text-muted);
 }
 
 .langSwitcher {
@@ -35,75 +67,103 @@
 }
 
 .langSwitcherBtn {
-  display: flex;
+  display    : flex;
   align-items: center;
-  gap: 0.4rem;
-  background: none;
-  border: none;
-  cursor: pointer;
+  gap        : 0.4rem;
+  background : none;
+  border     : none;
+  cursor     : pointer;
+  color      : var(--text-primary);
+}
+
+.langCurrent,
+.chevron {
+  color: var(--text-primary);
+}
+
+/* ===== Theme toggle button ===== */
+
+.themeToggleBtn {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 36px;
+  height         : 36px;
+  border-radius  : 50%;
+  background     : var(--surface-bg);
+  border         : 1px solid var(--surface-border);
+  color          : var(--text-primary);
+  cursor         : pointer;
+  transition     : background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.themeToggleBtn:hover {
+  background: var(--surface-bg-hover);
+  transform : translateY(-2px);
 }
 
 .langDropdown {
-  position: absolute;
-  top: 100%;
+  position          : absolute;
+  top               : 100%;
   inset-inline-start: 0;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  list-style: none;
-  margin: 0.5rem 0 0;
-  padding: 0.5rem 0;
-  min-width: 150px;
-  z-index: 1002;
+  background        : var(--dropdown-bg);
+  box-shadow        : 0 4px 10px var(--shadow-soft);
+  list-style        : none;
+  margin            : 0.5rem 0 0;
+  padding           : 0.5rem 0;
+  min-width         : 150px;
+  z-index           : 1002;
 }
 
 .langDropdown li button {
-  display: flex;
+  display    : flex;
   align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  text-align: start;
+  gap        : 0.5rem;
+  width      : 100%;
+  background : none;
+  border     : none;
+  padding    : 0.5rem 1rem;
+  cursor     : pointer;
+  text-align : start;
+  color      : var(--dropdown-text);
 }
 
 .langDropdown li button:hover {
-  background: #f5f5f5;
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .langFlag svg {
-  width: 20px;
+  width : 20px;
   height: auto;
 }
 
 /* ===== Hamburger button ===== */
 
 .hamburgerBtn {
-  display: none;
-  flex-direction: column;
+  display        : none;
+  flex-direction : column;
   justify-content: center;
-  gap: 5px;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1001;
+  gap            : 5px;
+  width          : 32px;
+  height         : 32px;
+  background     : none;
+  border         : none;
+  cursor         : pointer;
+  padding        : 0;
+  z-index        : 1001;
 }
 
 .hamburgerLine {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #000;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  display         : block;
+  width           : 100%;
+  height          : 2px;
+  background-color: var(--text-primary);
+  transition      : transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease;
 }
 
 .hamburgerBtn.isOpen .hamburgerLine:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-  background-color: #fff;
+  transform       : translateY(7px) rotate(45deg);
+  background-color: var(--text-primary);
 }
 
 .hamburgerBtn.isOpen .hamburgerLine:nth-child(2) {
@@ -111,8 +171,8 @@
 }
 
 .hamburgerBtn.isOpen .hamburgerLine:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-  background-color: #fff;
+  transform       : translateY(-7px) rotate(-45deg);
+  background-color: var(--text-primary);
 }
 
 /* ===== Mobile responsive ===== */
@@ -123,21 +183,21 @@
   }
 
   .mainNav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: 100vh;
-    background: #0a0e1a;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transform: translateY(-100%);
-    transition: transform 0.3s ease;
-    padding-top: 90px;
+    position      : fixed;
+    top           : 0;
+    left          : 0;
+    width         : 100%;
+    max-width     : 100%;
+    height        : auto;
+    max-height    : 100vh;
+    background    : var(--header-bg);
+    box-shadow    : 0 4px 10px var(--shadow-soft);
+    transform     : translateY(-100%);
+    transition    : transform 0.3s ease;
+    padding-top   : 90px;
     padding-bottom: 2rem;
-    z-index: 1000;
-    overflow-y: auto;
+    z-index       : 1000;
+    overflow-y    : auto;
   }
 
   .mainNav.mobileOpen {
@@ -146,34 +206,44 @@
 
   .navList {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 0 1.5rem;
+    align-items   : flex-start;
+    gap           : 1rem;
+    padding       : 0 1.5rem;
+    background    : transparent;
   }
 
-  /* ===== Language on mobile ===== */
+  .navItem a {
+    color: var(--text-primary);
+  }
 
   .langSwitcher {
     width: 100%;
   }
 
   .langSwitcherBtn {
-    width: 100%;
+    width          : 100%;
     justify-content: flex-start;
-    color: #fff;
+    color          : var(--text-primary);
   }
 
   .langCurrent,
   .chevron {
-    color: #fff;
+    color: var(--text-primary);
+  }
+
+  .themeToggleBtn {
+    width          : 100%;
+    border-radius  : 8px;
+    justify-content: flex-start;
+    padding        : 0.6rem 0.8rem;
   }
 
   .langDropdown {
-    position: static;
-    width: 100%;
-    min-width: 0;
-    margin: 0.5rem 0 0;
-    padding: 0.25rem 0;
+    position  : static;
+    width     : 100%;
+    min-width : 0;
+    margin    : 0.5rem 0 0;
+    padding   : 0.25rem 0;
     background: transparent;
     box-shadow: none;
   }
@@ -183,24 +253,24 @@
   }
 
   .langDropdown li button {
-    width: 100%;
-    color: #fff;
-    padding: 0.5rem 0;
+    width          : 100%;
+    color          : var(--text-primary);
+    padding        : 0.5rem 0;
     justify-content: flex-start;
-    background: transparent;
+    background     : transparent;
   }
 
   .langDropdown li button:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--surface-bg-strong);
   }
 
   .langFlag {
-    display: flex;
+    display    : flex;
     align-items: center;
   }
 
   .langFlag svg {
-    width: 18px;
+    width : 18px;
     height: auto;
   }
 }

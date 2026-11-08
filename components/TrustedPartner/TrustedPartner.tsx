@@ -1,72 +1,53 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./TrustedPartner.module.css";
 import { Cairo } from "next/font/google";
-import {
-  FaHandshake,
-  FaUsers,
-  FaGlobe,
-  FaArrowLeft,
-} from "react-icons/fa";
+import { FaHandshake, FaUsers, FaGlobe, FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { homeContent } from "@/lib/content/home";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
   weight: ["300", "400", "600", "700", "800"],
 });
 
-const features = [
-  {
-    id: "experience",
-    text: "خبرة مثبتة في مشاريع حكومية واسعة النطاق",
-    icon: FaHandshake,
-  },
-  {
-    id: "team",
-    text: "فريق عالي المهارة بخبرة مجمعة تتجاوز 20 عامًا",
-    icon: FaUsers,
-  },
-  {
-    id: "standards",
-    text: "الالتزام بالمعايير الدولية",
-    icon: FaGlobe,
-  },
-];
+// الأيقونات بنفس ترتيب features في ملف المحتوى
+const featureIcons = [FaHandshake, FaUsers, FaGlobe];
 
 export default function TrustedPartner() {
+  const { locale } = useLanguage();
+  const c = homeContent[locale].trusted;
+  const Arrow = locale === "ar" ? FaArrowLeft : FaArrowRight;
+
   return (
-    <section className={`${styles.section} ${cairo.className}`} dir="rtl">
+    <section className={`${styles.section} ${cairo.className}`}>
       <div className={styles.container}>
         {/* Background Decorations */}
         <div className={styles.decoration1} />
         <div className={styles.decoration2} />
 
         <div className={styles.header}>
-          <span className={styles.badge}>من نحن</span>
-          <h2 className={styles.title}>شريك موثوق</h2>
-          <h3 className={styles.subtitle}>في الحلول الجغرافية المكانية والهندسية</h3>
+          <span className={styles.badge}>{c.badge}</span>
+          <h2 className={styles.title}>{c.title}</h2>
+          <h3 className={styles.subtitle}>{c.subtitle}</h3>
         </div>
-
-        {/* ✅ تم إزالة الخط الفاصل */}
 
         <div className={styles.content}>
           <div className={styles.about}>
-            <p className={styles.paragraph}>
-              شركة تقني الأولى هي شركة سعودية رائدة متخصصة في خدمات الاستشارات
-              الهندسية والجغرافية المكانية المتقدمة. ندعم الجهات الحكومية
-              والمنظمات من خلال تحويل البيانات المكانية إلى معلومات قابلة
-              للتنفيذ تعزز التخطيط، وتحسن الكفاءة، وتمكّن من اتخاذ قرارات
-              مستنيرة.
-            </p>
+            <p className={styles.paragraph}>{c.paragraph}</p>
 
-            <button type="button" className={styles.ctaButton}>
-              <span>تعرف علينا أكثر</span>
-              <FaArrowLeft className={styles.ctaIcon} />
-            </button>
+            <Link href="/about" className={styles.ctaButton}>
+              <span>{c.cta}</span>
+              <Arrow className={styles.ctaIcon} />
+            </Link>
           </div>
 
           <div className={styles.imageWrap}>
             <Image
               src="/images/TrustedPartner.jpg"
-              alt="شريك موثوق - تقني الأولى"
+              alt={c.imageAlt}
               fill
               sizes="(max-width: 900px) 90vw, 360px"
               className={styles.image}
@@ -74,14 +55,14 @@ export default function TrustedPartner() {
           </div>
 
           <ul className={styles.featureList}>
-            {features.map((feature) => {
-              const Icon = feature.icon;
+            {c.features.map((text, i) => {
+              const Icon = featureIcons[i];
               return (
-                <li className={styles.featureItem} key={feature.id}>
+                <li className={styles.featureItem} key={i}>
                   <span className={styles.iconCircle}>
                     <Icon size={24} />
                   </span>
-                  <span className={styles.text}>{feature.text}</span>
+                  <span className={styles.text}>{text}</span>
                 </li>
               );
             })}

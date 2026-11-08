@@ -1,27 +1,25 @@
-import React from 'react';
-import styles from './ServicesSection.module.css';
+"use client";
 
-// تعريف نوع البيانات
-interface ServiceCard {
-  id: number;
-  title: string;
-  subtitle?: string;
-  description: string;
+import React from "react";
+import Link from "next/link";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import styles from "./ServicesSection.module.css";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { homeContent } from "@/lib/content/home";
+import { servicesContent } from "@/lib/content/services";
+
+interface CardStyle {
+  /** نفس id الخدمة في lib/content/services.ts — منه بنجيب العنوان والوصف باللغتين */
+  id: string;
   icon: React.ReactNode;
   iconClass: string;
   accentClass: string;
-  stat?: string;
-  statLabel?: string;
 }
 
-const ServicesSection: React.FC = () => {
-  // مصفوفة البيانات
-const services: ServiceCard[] = [
+// الترتيب هنا هو ترتيب الظهور في الصفحة الرئيسية
+const cards: CardStyle[] = [
   {
-    id: 1,
-    title: 'التحليل المكاني',
-    subtitle: 'المتقدم والمحدد',
-    description: 'تحول البيانات المكانية الخام إلى رؤى قابلة للتشغيل من خلال التحليل المتقدم والمنهجية التنبؤية.',
+    id: "spatial-analysis",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
@@ -32,9 +30,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentBlue,
   },
   {
-    id: 2,
-    title: 'تطوير تطبيقات كاي ونكامل المنصات',
-    description: 'نقوم بتصميم وتطوير تطبيقات ومنصات جغرافية مخصصة لتكامل بسالسة مع الأنظمة الحالية.',
+    id: "app-dev",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="2" width="20" height="20" rx="4" />
@@ -45,10 +41,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentPurple,
   },
   {
-    id: 3,
-    title: 'الاستشارات وصناع التحليل',
-    subtitle: 'الاستراتيجي للنظم المعلومات الجغرافية (GIS)',
-    description: 'نساعد المؤسسات على التخطيط والتقييم وتنفيذ استراتيجيات GIS قفالة تنشئية مع أهدافها التشغيلية والاستراتيجية.',
+    id: "consulting",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M21 21l-4.35-4.35" />
@@ -60,10 +53,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentAmber,
   },
   {
-    id: 4,
-    title: 'إدارة البيانات',
-    subtitle: 'الجغرافية المكانية',
-    description: 'نقدم دورة الحياة الكاملة للبيانات الجغرافية المكانية، مع ضمان الدقة، والانساق، والآمن، وجاهزيتها لتحليل واتخاذ القرارات.',
+    id: "data-management",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <ellipse cx="12" cy="5" rx="9" ry="3" />
@@ -75,9 +65,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentEmerald,
   },
   {
-    id: 5,
-    title: 'حلول الاستشعار عن بُعد وصور الأقمار الصناعية',
-    description: 'نعالج ونحلل صور الأقمار الصناعية والصور الجوية لمراقبة التغيرات المكانية وتقييمها وفهمها.',
+    id: "remote-sensing",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C13.5 3 15 3.5 16.2 4.5" />
@@ -89,9 +77,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentTeal,
   },
   {
-    id: 6,
-    title: 'حلول نظم المعلومات الجغرافية ثلاثية الأبعاد والتوأم الرقمي',
-    description: 'نطوّر نماذج مكانية ثلاثية الأبعاد وتوائم رقمية متقدمة لدعم التخطيط الذكي وإدارة الأصول.',
+    id: "digital-twin",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 3L3 8L12 13L21 8L12 3Z" />
@@ -103,9 +89,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentPink,
   },
   {
-    id: 7,
-    title: 'حلول التخطيط العمراني وإدارة الأراضي',
-    description: 'ندعم التنمية الحضرية وإدارة الأراضي المعتمدة على البيانات باستخدام الذكاء الجغرافي المكاني.',
+    id: "urban-planning",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="2" width="20" height="20" rx="1" />
@@ -118,9 +102,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentOrange,
   },
   {
-    id: 8,
-    title: 'حلول GIS لقطاع الهندسة والعمارة والإنشاءات (AEC)',
-    description: 'ندعم مشاريع الهندسة والإنشاءات من خلال حلول GIS متكاملة.',
+    id: "aec",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M4 20L20 4" />
@@ -132,9 +114,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentLime,
   },
   {
-    id: 9,
-    title: 'حلول المسح والتخطيط باستخدام الطائرات بدون طيار',
-    description: 'نوفّر خدمات مسح جوي ورسم خرائط عالية الدقة باستخدام تقنيات الدرون المتقدمة.',
+    id: "drone",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 2C12 2 8 6 8 12C8 18 12 22 12 22C12 22 16 18 16 12C16 6 12 2 12 2Z" />
@@ -145,9 +125,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentSky,
   },
   {
-    id: 10,
-    title: 'حلول المسح الليزري الأرضي ثلاثي الأبعاد',
-    description: 'نقدّم عمليات مسح ثلاثية الأبعاد دقيقة لأغراض التوثيق والنمذجة وتطبيقات التوأم الرقمي.',
+    id: "laser-scanning",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <circle cx="12" cy="12" r="10" />
@@ -162,9 +140,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentIndigo,
   },
   {
-    id: 11,
-    title: 'حلول أنظمة المسح المتحرك (MMS)',
-    description: 'نقدّم حلول مسح متحركة متطورة لجمع البيانات المكانية بدقة عالية أثناء الحركة لتطبيقات البنية التحتية والنقل.',
+    id: "mms",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <circle cx="12" cy="12" r="3" />
@@ -177,9 +153,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentRose,
   },
   {
-    id: 12,
-    title: 'حلول الفوتوغرامتري (التصوير المساحي)',
-    description: 'نوفّر بيانات مكانية تفصيلية من خلال الفوتوغرامتري الأرضي والجوي لإنتاج نماذج ثلاثية الأبعاد دقيقة.',
+    id: "photogrammetry",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="2" width="20" height="16" rx="2" />
@@ -193,9 +167,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentCyan,
   },
   {
-    id: 13,
-    title: 'الذكاء الجغرافي البيئي وGeoAI',
-    description: 'نطبّق تقنيات الذكاء الاصطناعي على البيانات المكانية البيئية للحصول على تحليلات وتوقعات أكثر ذكاءً.',
+    id: "geoai",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 2C9 2 6 4 6 8C6 12 12 18 12 18C12 18 18 12 18 8C18 4 15 2 12 2Z" />
@@ -208,9 +180,7 @@ const services: ServiceCard[] = [
     accentClass: styles.accentViolet,
   },
   {
-    id: 14,
-    title: 'حلول اضطرابات GPS وتحديد المواقع',
-    description: 'نقدّم حلولًا متقدمة للتغلب على اضطرابات إشارات GPS في البيئات الصعبة مثل الأنفاق والمناطق الحضرية المزدحمة.',
+    id: "gps",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 2L12 7" />
@@ -229,41 +199,48 @@ const services: ServiceCard[] = [
   },
 ];
 
+const ServicesSection: React.FC = () => {
+  const { locale } = useLanguage();
+  const c = homeContent[locale].services;
+  const items = servicesContent[locale].items;
+  const Arrow = locale === "ar" ? FaArrowLeft : FaArrowRight;
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
-          <span className={styles.badge}>خدماتنا</span>
+          <span className={styles.badge}>{c.badge}</span>
           <h2 className={styles.title}>
-            حلول <span className={styles.highlight}>جغرافية مكانية</span> متكاملة
+            {c.titleStart} <span className={styles.highlight}>{c.titleHighlight}</span> {c.titleEnd}
           </h2>
-          <p className={styles.subtitle}>
-            نقدم مجموعة متكاملة من الخدمات المتخصصة لتلبية احتياجاتك في مجال نظم المعلومات الجغرافية
-          </p>
+          <p className={styles.subtitle}>{c.subtitle}</p>
         </div>
 
-        {/* Grid - استخدام map لتوليد الكروت */}
         <div className={styles.grid}>
-          {services.map((service) => (
-            <div key={service.id} className={styles.card}>
-              <div className={styles.cardInner}>
-                <div className={styles.iconWrapper}>
-                  <div className={`${styles.icon} ${service.iconClass}`}>
-                    {service.icon}
+          {cards.map((card) => {
+            const service = items.find((s) => s.id === card.id);
+            if (!service) return null;
+            return (
+              <div key={card.id} className={styles.card}>
+                <div className={styles.cardInner}>
+                  <div className={styles.iconWrapper}>
+                    <div className={`${styles.icon} ${card.iconClass}`}>{card.icon}</div>
                   </div>
+                  <h3 className={styles.cardTitle}>{service.title}</h3>
+                  <p className={styles.cardDesc}>{service.description}</p>
                 </div>
-                <h3 className={styles.cardTitle}>{service.title}</h3>
-                {service.subtitle && (
-                  <span className={styles.cardSubtitle}>{service.subtitle}</span>
-                )}
-                <p className={styles.cardDesc}>{service.description}</p>
-                
-                
+                <div className={`${styles.accent} ${card.accentClass}`} />
               </div>
-              <div className={`${styles.accent} ${service.accentClass}`} />
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        <div className={styles.viewAllWrap}>
+          <Link href="/services" className={styles.viewAll}>
+            <span>{c.viewAll}</span>
+            <Arrow />
+          </Link>
         </div>
       </div>
     </section>

@@ -1,0 +1,215 @@
+/* ---------- Why ---------- */
+
+.why {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.cardTitle {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 18px 0 8px;
+}
+
+.cardText {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text-muted);
+}
+
+/* ---------- Fields ---------- */
+
+.fields {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  font-size: 16px;
+  font-weight: 600;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.field:hover {
+  border-color: rgba(96, 165, 250, 0.4);
+  background: var(--card-bg-hover);
+}
+
+.fieldIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(139, 92, 246, 0.18));
+  color: var(--accent-text);
+  font-size: 17px;
+}
+
+/* ---------- Openings banner ---------- */
+
+.openings {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 26px 28px;
+  border-radius: 22px;
+  border: 1px dashed var(--card-border-hover);
+  background: var(--page-bg);
+}
+
+.openingsText {
+  flex: 1;
+}
+
+.openingsText h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.openingsText p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+/* ---------- Apply ---------- */
+
+.applyLayout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.processCol {
+  position: sticky;
+  top: 110px;
+}
+
+.timeline {
+  list-style: none;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tStep {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  padding-bottom: 28px;
+}
+
+/* الخط الرأسي بين الخطوات */
+.tStep:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 19px;
+  top: 42px;
+  bottom: 4px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(96, 165, 250, 0.5), var(--divider));
+}
+
+.tDot {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.12);
+}
+
+.tTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 6px 0 2px;
+}
+
+.tText {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.formCard {
+  padding: 44px 40px;
+  border-radius: 28px;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--page-bg), var(--page-bg)) padding-box,
+    linear-gradient(135deg, rgba(59, 130, 246, 0.5), var(--card-border) 45%, rgba(139, 92, 246, 0.5)) border-box;
+  box-shadow: 0 30px 80px var(--shadow-medium);
+  transition-delay: 100ms;
+}
+
+.formLead {
+  margin-bottom: 30px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .why {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fields {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .applyLayout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .processCol {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .why,
+  .fields {
+    grid-template-columns: 1fr;
+  }
+
+  .openings {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 20px;
+  }
+
+  .openings > a {
+    width: 100%;
+  }
+
+  .formCard {
+    padding: 28px 20px;
+    border-radius: 22px;
+  }
+}

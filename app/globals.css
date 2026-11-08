@@ -11,6 +11,95 @@
 .services-section * {
   font-family: 'Cairo', sans-serif !important;
 }
+
+/* ========================================================
+   Theme Variables (Light / Dark)
+   الوضع الافتراضي "dark" هو نفس تصميم الموقع الحالي.
+   [data-theme="light"] بيتحط على <html> عن طريق ThemeContext
+   ======================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* خلفيات متدرجة */
+  --bg-stop-1: #0a0e1a;
+  --bg-stop-2: #141b2d;
+  --bg-stop-3: #1a2338;
+
+  --page-bg: #0b1220;
+  --body-bg: #05070c;
+
+  /* نصوص */
+  --text-primary: #ffffff;
+  --text-body: #d7dce5;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
+
+  /* الهيدر */
+  --header-bg: #1a2338;
+
+  /* الكروت والأسطح */
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-bg-hover: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --card-border-hover: rgba(255, 255, 255, 0.12);
+
+  --surface-bg: rgba(255, 255, 255, 0.05);
+  --surface-bg-strong: rgba(255, 255, 255, 0.08);
+  --surface-bg-hover: rgba(255, 255, 255, 0.1);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-border-soft: rgba(255, 255, 255, 0.06);
+
+  --divider: rgba(255, 255, 255, 0.08);
+  --divider-soft: rgba(255, 255, 255, 0.05);
+
+  --shadow-soft: rgba(0, 0, 0, 0.2);
+  --shadow-medium: rgba(0, 0, 0, 0.3);
+  --shadow-strong: rgba(0, 0, 0, 0.4);
+
+  --dropdown-bg: #fdf6ec;
+  --dropdown-text: #1a1a1a;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-stop-1: #f8fafc;
+  --bg-stop-2: #eef2f7;
+  --bg-stop-3: #e5eaf1;
+
+  --page-bg: #f8fafc;
+  --body-bg: #ffffff;
+
+  --text-primary: #0f172a;
+  --text-body: #334155;
+  --text-muted: #56617a;
+  --text-faint: #6b7688;
+
+  --header-bg: #ffffff;
+
+  --card-bg: rgba(15, 23, 42, 0.035);
+  --card-bg-hover: rgba(15, 23, 42, 0.06);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --card-border-hover: rgba(15, 23, 42, 0.16);
+
+  --surface-bg: rgba(15, 23, 42, 0.04);
+  --surface-bg-strong: rgba(15, 23, 42, 0.06);
+  --surface-bg-hover: rgba(15, 23, 42, 0.08);
+  --surface-border: rgba(15, 23, 42, 0.1);
+  --surface-border-soft: rgba(15, 23, 42, 0.07);
+
+  --divider: rgba(15, 23, 42, 0.08);
+  --divider-soft: rgba(15, 23, 42, 0.06);
+
+  --shadow-soft: rgba(15, 23, 42, 0.08);
+  --shadow-medium: rgba(15, 23, 42, 0.12);
+  --shadow-strong: rgba(15, 23, 42, 0.16);
+
+  --dropdown-bg: #ffffff;
+  --dropdown-text: #1a1a1a;
+}
+
 html,
 body {
   height: auto;
@@ -19,8 +108,9 @@ body {
 
 body {
   font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif;
-  background: #fff;
-  color: #ffffff;
+  background: var(--body-bg);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 a {
@@ -28,11 +118,16 @@ a {
   text-decoration: none;
 }
 
+/* لما نروح لرابط داخل الصفحة (زي #apply) العنوان ما يستخباش تحت النافبار الثابت */
+html {
+  scroll-padding-top: 90px;
+}
+
 /* ---------- Header ---------- */
 
 .site-header {
   background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--divider);
   position: absolute;
   top: 0;
   left: 0;
@@ -60,7 +155,7 @@ a {
 
 .main-nav a {
   font-size: 17px;
-  color: #d7dce5;
+  color: var(--text-body);
   transition: color 0.2s ease;
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
@@ -68,7 +163,7 @@ a {
 
 .main-nav a:hover,
 .main-nav a.active {
-  color: #ffffff;
+  color: var(--text-primary);
   border-bottom-color: #3b82f6;
   font-size: 18px;
 }
@@ -82,7 +177,7 @@ a {
   justify-content: center;
   text-align: center;
   padding: 140px 20px 60px;
-  background: #0b1220;
+  background: var(--page-bg);
 }
 
 .page-placeholder h1 {
@@ -92,7 +187,7 @@ a {
 
 .page-placeholder p {
   margin-top: 12px;
-  color: #9aa3b2;
+  color: var(--text-muted);
   font-size: 16px;
 }
 
@@ -113,6 +208,8 @@ a {
 }
 
 /* ---------- Hero Headings ---------- */
+/* ملحوظة: نص الهيرو فاضل أبيض ثابت في الوضعين لأن فيه صورة خلفية
+   مع تظليل غامق ثابت (شوف Home/page.tsx) بغض النظر عن الثيم */
 
 .hero h1 {
   width: 65%;
@@ -224,10 +321,10 @@ a {
 /* ---------- Footer ---------- */
 
 .site-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--divider);
   padding: 24px 32px;
   text-align: center;
-  color: #9aa3b2;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
@@ -351,7 +448,7 @@ a {
   background: transparent;
   border: none;
 
-  color: #d7dce5;
+  color: var(--text-body);
 
   font-size: 17px;
   font-family: inherit;
@@ -363,7 +460,7 @@ a {
 }
 
 .lang-switcher-btn:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .lang-current {
@@ -388,7 +485,7 @@ a {
   margin: 0;
   padding: 0;
 
-  background: #fdf6ec;
+  background: var(--dropdown-bg);
 
   list-style: none;
 
@@ -396,7 +493,7 @@ a {
 
   overflow: hidden;
 
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 24px var(--shadow-medium);
 
   z-index: 100;
 
@@ -423,7 +520,7 @@ a {
   background: transparent;
   border: none;
 
-  color: #1a1a1a;
+  color: var(--dropdown-text);
 
   font-size: 16px;
   font-family: inherit;

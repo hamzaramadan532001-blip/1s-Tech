@@ -1,9 +1,8 @@
 /* Section Container */
 .section {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #0a0e1a 0%, #141b2d 50%, #1a2338 100%);
+  background: linear-gradient(135deg, var(--bg-stop-1) 0%, var(--bg-stop-2) 50%, var(--bg-stop-3) 100%);
   min-height: 100vh;
-  direction: rtl;
 }
 
 .container {
@@ -32,7 +31,7 @@
 .title {
   font-size: 42px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
@@ -44,7 +43,7 @@
 }
 
 .subtitle {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 18px;
   max-width: 600px;
   margin: 0 auto;
@@ -60,9 +59,9 @@
 
 /* Card */
 .card {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card-bg);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
   backdrop-filter: blur(20px);
   position: relative;
   overflow: hidden;
@@ -71,9 +70,9 @@
 
 .card:hover {
   transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 20px 60px var(--shadow-strong);
 }
 
 .cardInner {
@@ -120,7 +119,7 @@
 
 /* Card Text */
 .cardTitle {
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 4px;
@@ -135,7 +134,7 @@
 }
 
 .cardDesc {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 14px;
   line-height: 1.8;
   margin-bottom: 20px;
@@ -147,7 +146,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--divider-soft);
 }
 
 .stat {
@@ -156,14 +155,14 @@
 }
 
 .statValue {
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 20px;
   font-weight: 700;
   line-height: 1;
 }
 
 .statLabel {
-  color: #64748b;
+  color: var(--text-faint);
   font-size: 11px;
   font-weight: 500;
   margin-top: 4px;
@@ -171,10 +170,10 @@
 
 .btn {
   padding: 6px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface-bg);
+  border: 1px solid var(--surface-border);
   border-radius: 50px;
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -183,9 +182,9 @@
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--surface-bg-hover);
+  color: var(--text-primary);
+  border-color: var(--card-border-hover);
 }
 
 /* Accent Line */
@@ -329,4 +328,31 @@
 
 .accentRed {
   background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+/* View all link */
+.viewAllWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.viewAll:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35);
 }

@@ -1,10 +1,11 @@
-export default function UseCasesPage() {
-  return (
-    <section className="page-placeholder">
-      <div>
-        <h1>حالات الاستخدام</h1>
-        <p>هذه الصفحة تحت الإنشاء</p>
-      </div>
-    </section>
-  );
+import type { Metadata } from "next";
+import UseCasesPage from "@/components/UseCasesPage/UseCasesPage";
+
+export const metadata: Metadata = {
+  title: "حالات الاستخدام",
+  description: "كيف توظّف تقني الأولى الذكاء الجغرافي المكاني في 17 قطاعًا من اللوجستيات والطاقة إلى الزراعة والطيران.",
+};
+
+export default function Page() {
+  return <UseCasesPage />;
 }

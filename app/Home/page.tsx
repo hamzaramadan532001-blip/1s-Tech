@@ -1,9 +1,10 @@
 "use client";
 
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { homeContent } from "@/lib/content/home";
 
 export default function HomePage() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   return (
     <section
@@ -27,7 +28,7 @@ export default function HomePage() {
           {t.hero.cta}
         </a>
 
-        <a href="tel:+966000000000" className="btn-icon" aria-label="اتصل بنا">
+        <a href="tel:+966540007344" className="btn-icon" aria-label={homeContent[locale].heroCallLabel}>
           <svg
             width="20"
             height="20"

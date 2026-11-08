@@ -35,15 +35,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // كل ما الوضع يتغير، نحدّث الـ attribute على <html> ونحفظه
+  // كل ما الوضع يتغير، نحدّث الـ attribute على <html>
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const setTheme = (next: Theme) => setThemeState(next);
-  const toggleTheme = () =>
-    setThemeState((prev) => (prev === "dark" ? "light" : "dark"));
+  // بنحفظ الوضع بس لما المستخدم يغيّره، عشان أول تحميل ما يكتبش "dark"
+  // فوق اختياره المحفوظ قبل ما نقراه
+  const setTheme = (next: Theme) => {
+    setThemeState(next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch {
+      // التخزين ممكن يكون مقفول — الوضع هيشتغل في الجلسة دي بس
+    }
+  };
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>

@@ -1,10 +1,12 @@
-export default function AboutPage() {
-  return (
-    <section className="page-placeholder">
-      <div>
-        <h1>من نحن</h1>
-        <p>هذه الصفحة تحت الإنشاء</p>
-      </div>
-    </section>
-  );
+import type { Metadata } from "next";
+import AboutPage from "@/components/AboutPage/AboutPage";
+
+export const metadata: Metadata = {
+  title: "من نحن",
+  description:
+    "شركة تقني الأولى: شركة سعودية رائدة تأسست عام 2022، متخصصة في الاستشارات الهندسية والمساحة والتخطيط العمراني ونظم المعلومات الجغرافية.",
+};
+
+export default function Page() {
+  return <AboutPage />;
 }

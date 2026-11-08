@@ -1,9 +1,8 @@
 .section {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #0a0e1a 0%, #141b2d 50%, #1a2338 100%);
+  background: linear-gradient(135deg, var(--bg-stop-1) 0%, var(--bg-stop-2) 50%, var(--bg-stop-3) 100%);
   position: relative;
   overflow: hidden;
-  direction: rtl;
 }
 
 .container {
@@ -61,7 +60,7 @@
 .title {
   font-size: 42px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
@@ -73,7 +72,7 @@
 }
 
 .subtitle {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 18px;
   max-width: 500px;
   margin: 0 auto;
@@ -97,23 +96,23 @@
 
 /* FAQ Item */
 .faqItem {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card-bg);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
   backdrop-filter: blur(20px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
 .faqItem:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--surface-bg);
+  border-color: var(--card-border-hover);
 }
 
 .faqItem.active {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--card-bg-hover);
   border-color: rgba(59, 130, 246, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px var(--shadow-soft);
 }
 
 /* FAQ Question Button */
@@ -126,14 +125,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  text-align: right;
+  text-align: start;
   font-family: inherit;
-  color: #ffffff;
+  color: var(--text-primary);
   transition: all 0.3s ease;
 }
 
 .faqQuestion:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card-bg);
 }
 
 .questionNumber {
@@ -149,7 +148,7 @@
   flex: 1;
   font-size: 16px;
   font-weight: 600;
-  text-align: right;
+  text-align: start;
   line-height: 1.5;
 }
 
@@ -161,7 +160,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-bg);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -180,7 +179,7 @@
 }
 
 .arrowIcon svg {
-  stroke: #94a3b8;
+  stroke: var(--text-muted);
 }
 
 .faqItem.active .arrowIcon svg {
@@ -221,7 +220,7 @@
 
 .answerText {
   flex: 1;
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 15px;
   line-height: 1.8;
   margin: 0;

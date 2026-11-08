@@ -1,9 +1,8 @@
 .section {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #0a0e1a 0%, #141b2d 50%, #1a2338 100%);
+  background: linear-gradient(135deg, var(--bg-stop-1) 0%, var(--bg-stop-2) 50%, var(--bg-stop-3) 100%);
   position: relative;
   overflow: hidden;
-  direction: rtl;
 }
 
 .container {
@@ -71,7 +70,7 @@
 .title {
   font-size: 42px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
@@ -83,7 +82,7 @@
 }
 
 .subtitle {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 18px;
   max-width: 600px;
   margin: 0 auto;
@@ -108,9 +107,9 @@
 
 /* Cards */
 .card {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card-bg);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
   backdrop-filter: blur(20px);
   padding: 20px 24px;
   text-decoration: none;
@@ -123,9 +122,9 @@
 
 .card:hover {
   transform: translateX(8px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 10px 40px var(--shadow-medium);
 }
 
 .card1:hover {
@@ -179,14 +178,14 @@
 }
 
 .cardLabel {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 13px;
   font-weight: 500;
   margin: 0 0 4px 0;
 }
 
 .cardValue {
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 16px;
   font-weight: 600;
   margin: 0;
@@ -218,7 +217,7 @@
   height: auto;
   object-fit: cover;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
 }
 
 .imageGlow {
@@ -326,4 +325,9 @@
   .imageWrapper {
     max-width: 250px;
   }
+}
+
+/* في الإنجليزي (LTR) الحركة بتبقى في الاتجاه العكسي */
+:global([dir="ltr"]) .card:hover {
+  transform: translateX(-8px);
 }

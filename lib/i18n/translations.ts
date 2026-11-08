@@ -24,6 +24,37 @@ export interface Translations {
     careers: string;
     underConstruction: string;
   };
+  about: {
+    badge: string;
+    heroTitle: string;
+    heroHighlight: string;
+    heroLead: string;
+    ctaPrimary: string;
+    ctaProfile: string;
+    foundedLabel: string;
+    foundedValue: string;
+    basedLabel: string;
+    basedValue: string;
+    imageAlt: string;
+    storyEyebrow: string;
+    storyTitle: string;
+    storyP1: string;
+    storyP2: string;
+    pillars: { title: string; text: string }[];
+    goalsEyebrow: string;
+    goalsTitle: string;
+    goalsStatement: string;
+    goals: { title: string; text: string }[];
+    valuesEyebrow: string;
+    valuesTitle: string;
+    valuesLead: string;
+    values: { title: string; text: string }[];
+    partnersTitle: string;
+    partnersLead: string;
+    closingTitle: string;
+    closingText: string;
+    closingCta: string;
+  };
 }
 
 export const translations: Record<Locale, Translations> = {
@@ -51,6 +82,67 @@ export const translations: Record<Locale, Translations> = {
       careers: "التوظيف",
       underConstruction: "هذه الصفحة تحت الإنشاء",
     },
+    about: {
+      badge: "من نحن",
+      heroTitle: "نحوّل البيانات المكانية إلى",
+      heroHighlight: "قرارات تصنع المستقبل",
+      heroLead:
+        "شركة سعودية رائدة تجمع بين الاستشارات الهندسية والمساحة والتخطيط العمراني ونظم المعلومات الجغرافية، لنكون شريكًا موثوقًا للجهات الحكومية والمنظمات.",
+      ctaPrimary: "تواصل معنا",
+      ctaProfile: "حمّل الملف التعريفي",
+      foundedLabel: "تأسست عام",
+      foundedValue: "2022",
+      basedLabel: "المقر",
+      basedValue: "المملكة العربية السعودية",
+      imageAlt: "فريق تقني الأولى",
+      storyEyebrow: "قصتنا",
+      storyTitle: "شركة سعودية رائدة، تأسست عام 2022",
+      storyP1:
+        "نعمل كشريك موثوق للجهات الحكومية والمنظمات، ونقدّم حلولًا متكاملة تجمع بين الاستشارات الهندسية، والمساحة، والتخطيط العمراني، ونظم المعلومات الجغرافية، مدعومة بأحدث التقنيات ووفق المعايير الدولية.",
+      storyP2:
+        "نؤمن بأن البيانات المكانية والجغرافية ثروة حقيقية؛ لذلك نحوّلها إلى قيمة ملموسة تعزّز جودة التخطيط، وترفع الكفاءة التشغيلية، وتدعم اتخاذ قرارات مستنيرة.",
+      pillars: [
+        { title: "الاستشارات الهندسية", text: "دراسات وحلول هندسية دقيقة لمشاريعكم" },
+        { title: "المساحة", text: "رفع مساحي عالي الدقة بأحدث الأجهزة" },
+        { title: "التخطيط العمراني", text: "تخطيط عمراني مستدام لمدن المستقبل" },
+        { title: "نظم المعلومات الجغرافية", text: "منصات GIS تحوّل البيانات إلى رؤى" },
+      ],
+      goalsEyebrow: "أهدافنا",
+      goalsTitle: "إلى أين نتجه",
+      goalsStatement:
+        "نسعى إلى تحويل البيانات الجغرافية إلى رؤى ذكية وقيمة مضافة، تمكّن شركاءنا من التخطيط بكفاءة أعلى، واتخاذ قرارات أدق، وتحقيق أثر مستدام يدعم الحاضر ويصنع المستقبل.",
+      goals: [
+        { title: "تخطيط بكفاءة أعلى", text: "بيانات موثوقة تختصر الوقت والتكلفة" },
+        { title: "قرارات أدق", text: "رؤى مكانية واضحة تدعم صنّاع القرار" },
+        { title: "أثر مستدام", text: "حلول تخدم الحاضر وتبني المستقبل" },
+      ],
+      valuesEyebrow: "قيمنا",
+      valuesTitle: "المبادئ التي نعمل بها",
+      valuesLead: "أربع قيم توجّه كل مشروع نعمل عليه وكل شراكة نبنيها.",
+      values: [
+        {
+          title: "الابتكار",
+          text: "نبتكر حلولًا جيومكانية ذكية باستخدام أحدث التقنيات لتحويل البيانات إلى أدوات لاتخاذ القرار.",
+        },
+        {
+          title: "الموثوقية",
+          text: "نبني شراكات طويلة الأمد قائمة على الشفافية والالتزام، مع أعلى معايير الدقة والجودة.",
+        },
+        {
+          title: "الشراكة",
+          text: "نؤمن بأن النجاح يتحقق بالعمل جنبًا إلى جنب مع عملائنا، كشركاء حقيقيين في نجاحهم.",
+        },
+        {
+          title: "روح الفريق",
+          text: "قوتنا في فريقنا؛ خبراء يتعاونون باستمرار لتحقيق أفضل النتائج لعملائنا.",
+        },
+      ],
+      partnersTitle: "شركاء النجاح",
+      partnersLead: "جهات ومنظمات وثقت بنا لتحقيق أهدافها.",
+      closingTitle: "لنبنِ المستقبل معًا",
+      closingText: "هل لديك مشروع هندسي أو جيومكاني؟ فريقنا جاهز لمساعدتك من الفكرة حتى التنفيذ.",
+      closingCta: "ابدأ مشروعك",
+    },
   },
   en: {
     nav: {
@@ -75,6 +167,67 @@ export const translations: Record<Locale, Translations> = {
       contact: "Contact Us",
       careers: "Careers",
       underConstruction: "This page is under construction",
+    },
+    about: {
+      badge: "About Us",
+      heroTitle: "Turning spatial data into",
+      heroHighlight: "decisions that shape the future",
+      heroLead:
+        "A leading Saudi company combining engineering consultancy, surveying, urban planning and GIS — a trusted partner to government entities and organizations.",
+      ctaPrimary: "Contact Us",
+      ctaProfile: "Download Profile",
+      foundedLabel: "Established",
+      foundedValue: "2022",
+      basedLabel: "Headquarters",
+      basedValue: "Saudi Arabia",
+      imageAlt: "The 1sTech team",
+      storyEyebrow: "Our Story",
+      storyTitle: "A leading Saudi company, established in 2022",
+      storyP1:
+        "We serve as a trusted partner to government entities and organizations, delivering integrated solutions that combine engineering consultancy, surveying, urban planning and geographic information systems — powered by the latest technologies and aligned with international standards.",
+      storyP2:
+        "We believe spatial and geographic data is a real asset. We turn it into tangible value that improves planning, raises operational efficiency and enables informed decision-making.",
+      pillars: [
+        { title: "Engineering Consultancy", text: "Precise engineering studies and solutions" },
+        { title: "Surveying", text: "High-accuracy surveys with modern equipment" },
+        { title: "Urban Planning", text: "Sustainable planning for the cities of tomorrow" },
+        { title: "GIS", text: "GIS platforms that turn data into insight" },
+      ],
+      goalsEyebrow: "Our Goals",
+      goalsTitle: "Where we are heading",
+      goalsStatement:
+        "We strive to turn geographic data into smart insights and added value — enabling our partners to plan more efficiently, decide more accurately, and achieve sustainable impact that supports the present and shapes the future.",
+      goals: [
+        { title: "More efficient planning", text: "Reliable data that saves time and cost" },
+        { title: "More accurate decisions", text: "Clear spatial insight for decision-makers" },
+        { title: "Sustainable impact", text: "Solutions that serve today and build tomorrow" },
+      ],
+      valuesEyebrow: "Our Values",
+      valuesTitle: "The principles we work by",
+      valuesLead: "Four values that guide every project we deliver and every partnership we build.",
+      values: [
+        {
+          title: "Innovation",
+          text: "We create smart geospatial solutions using the latest technologies, turning data into decision-making tools.",
+        },
+        {
+          title: "Reliability",
+          text: "We build long-term partnerships founded on transparency and commitment, with the highest standards of accuracy and quality.",
+        },
+        {
+          title: "Partnership",
+          text: "We believe success comes from working side by side with our clients, as true partners in their success.",
+        },
+        {
+          title: "Team Spirit",
+          text: "Our strength is our team: experts who collaborate continuously to deliver the best results for our clients.",
+        },
+      ],
+      partnersTitle: "Our Partners",
+      partnersLead: "Entities and organizations that trust us to reach their goals.",
+      closingTitle: "Let's build the future together",
+      closingText: "Have an engineering or geospatial project? Our team is ready to help, from idea to delivery.",
+      closingCta: "Start Your Project",
     },
   },
 };

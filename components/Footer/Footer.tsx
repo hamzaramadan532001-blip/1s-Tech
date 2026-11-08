@@ -1,19 +1,15 @@
+"use client";
+
 import React from "react";
 import styles from "./Footer.module.css";
 import { Cairo } from "next/font/google";
 import Link from "next/link";
-import {
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaTwitter,
-  FaLinkedinIn,
-  FaYoutube,
-  FaInstagram,
-} from "react-icons/fa";
+import Image from "next/image";
+import { FaPhoneAlt, FaEnvelope, FaTwitter, FaLinkedinIn, FaYoutube, FaInstagram } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md";
-import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { homeContent } from "@/lib/content/home";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -21,27 +17,29 @@ const cairo = Cairo({
 });
 
 const Footer: React.FC = () => {
+  const { locale, t } = useLanguage();
+  const f = homeContent[locale].footer;
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { label: "الرئيسية", href: "/" },
-    { label: "من نحن", href: "/about" },
-    { label: "خدماتنا", href: "/services" },
-    { label: "حالات الاستخدام", href: "/case-studies" },
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.services, href: "/services" },
+    { label: t.nav.useCases, href: "/use-cases" },
   ];
 
   const infoLinks = [
-    { label: "تواصل معنا", href: "/contact" },
-    { label: "التوظيف", href: "/careers" },
-    { label: "سياسة الخصوصية", href: "/privacy" },
-    { label: "الشروط والأحكام", href: "/terms" },
+    { label: t.nav.contact, href: "/contact" },
+    { label: t.nav.careers, href: "/careers" },
+    { label: f.privacy, href: "/privacy" },
+    { label: f.terms, href: "/terms" },
   ];
 
   const socialLinks = [
-    { name: "تويتر", href: "#", icon: FaTwitter },
-    { name: "لينكدإن", href: "#", icon: FaLinkedinIn },
-    { name: "يوتيوب", href: "#", icon: FaYoutube },
-    { name: "إنستغرام", href: "#", icon: FaInstagram },
+    { name: f.social.twitter, href: "#", icon: FaTwitter },
+    { name: f.social.linkedin, href: "#", icon: FaLinkedinIn },
+    { name: f.social.youtube, href: "#", icon: FaYoutube },
+    { name: f.social.instagram, href: "#", icon: FaInstagram },
   ];
 
   return (
@@ -51,51 +49,37 @@ const Footer: React.FC = () => {
         <div className={styles.decoration1} />
         <div className={styles.decoration2} />
 
-        {/* Main Footer Grid */}
         <div className={styles.grid}>
           {/* Column 1: Brand & Newsletter */}
           <div className={styles.brandColumn}>
             <div className={styles.logo}>
-              
-              <Image
-  src="/images/logo.png"
-  alt="تقني الأولى"
-  width={150}
-  height={50}
-  className={styles.logo}
-/>
+              <Image src="/images/logo.png" alt={f.logoAlt} width={150} height={50} className={styles.logo} />
             </div>
-            <p className={styles.brandDesc}>
-              شركة سعودية رائدة في حلول GIS والاستشارات الهندسية
-            </p>
+            <p className={styles.brandDesc}>{f.description}</p>
 
             <div className={styles.newsletter}>
-              <h4 className={styles.newsletterTitle}>الرابط الإلكتروني</h4>
+              <h4 className={styles.newsletterTitle}>{f.newsletterTitle}</h4>
               <div className={styles.newsletterForm}>
                 <input
                   type="email"
-                  placeholder="بريدك الإلكتروني"
+                  placeholder={f.newsletterPlaceholder}
+                  aria-label={f.newsletterPlaceholder}
                   className={styles.newsletterInput}
                 />
-                <button className={styles.newsletterButton}>
-                  إرسال
+                <button type="button" className={styles.newsletterButton}>
+                  {f.newsletterButton}
                   <IoMdSend size={18} />
                 </button>
               </div>
             </div>
 
             <div className={styles.social}>
-              <span className={styles.socialLabel}>وسائل التواصل الاجتماعي</span>
+              <span className={styles.socialLabel}>{f.socialLabel}</span>
               <div className={styles.socialIcons}>
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
-                    <a
-                      key={social.name}
-                      href={social.href}
-                      className={styles.socialIcon}
-                      aria-label={social.name}
-                    >
+                    <a key={social.name} href={social.href} className={styles.socialIcon} aria-label={social.name}>
                       <Icon size={18} />
                     </a>
                   );
@@ -106,10 +90,10 @@ const Footer: React.FC = () => {
 
           {/* Column 2: Information */}
           <div className={styles.linksColumn}>
-            <h4 className={styles.columnTitle}>معلومات</h4>
+            <h4 className={styles.columnTitle}>{f.infoTitle}</h4>
             <ul className={styles.linksList}>
               {infoLinks.map((link) => (
-                <li key={link.label}>
+                <li key={link.href}>
                   <Link href={link.href} className={styles.link}>
                     {link.label}
                   </Link>
@@ -120,10 +104,10 @@ const Footer: React.FC = () => {
 
           {/* Column 3: Quick Links */}
           <div className={styles.linksColumn}>
-            <h4 className={styles.columnTitle}>روابط سريعة</h4>
+            <h4 className={styles.columnTitle}>{f.quickTitle}</h4>
             <ul className={styles.linksList}>
               {quickLinks.map((link) => (
-                <li key={link.label}>
+                <li key={link.href}>
                   <Link href={link.href} className={styles.link}>
                     {link.label}
                   </Link>
@@ -134,11 +118,11 @@ const Footer: React.FC = () => {
 
           {/* Column 4: Contact */}
           <div className={styles.contactColumn}>
-            <h4 className={styles.columnTitle}>تواصل معنا</h4>
+            <h4 className={styles.columnTitle}>{f.contactTitle}</h4>
             <div className={styles.contactInfo}>
               <a href="tel:+966540007344" className={styles.contactItem}>
                 <FaPhoneAlt size={16} />
-                <span>+966540007344</span>
+                <span dir="ltr">+966540007344</span>
               </a>
               <a href="mailto:info@1stech.sa" className={styles.contactItem}>
                 <FaEnvelope size={16} />
@@ -146,7 +130,7 @@ const Footer: React.FC = () => {
               </a>
               <div className={styles.contactItem}>
                 <MdLocationOn size={18} />
-                <span>الرياض، المملكة العربية السعودية</span>
+                <span>{f.location}</span>
               </div>
             </div>
           </div>
@@ -157,15 +141,15 @@ const Footer: React.FC = () => {
           <div className={styles.bottomLine} />
           <div className={styles.bottomContent}>
             <p className={styles.copyright}>
-              © {currentYear} شركة تقني الأولى. جميع الحقوق محفوظة.
+              © {currentYear} {f.copyright}
             </p>
             <div className={styles.bottomLinks}>
               <Link href="/privacy" className={styles.bottomLink}>
-                سياسة الخصوصية
+                {f.privacy}
               </Link>
               <span className={styles.bottomDivider}>|</span>
               <Link href="/terms" className={styles.bottomLink}>
-                الشروط والأحكام
+                {f.terms}
               </Link>
             </div>
           </div>
