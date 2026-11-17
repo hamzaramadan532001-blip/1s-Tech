@@ -1,6 +1,6 @@
 .container {
   --s: 180px;
-  --d: 20s;
+  --d: 34s;
   --n: 6;
 
   width: 100%;
@@ -72,7 +72,7 @@ offset-rotate: 0deg;
 @media (max-width: 768px) {
   .container {
     --s: 140px;
-    --d: 18s;
+    --d: 30s;
     --n: 3;
   }
 

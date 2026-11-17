@@ -39,6 +39,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const titles: Record<string, string> = {
       "/about": nav.about,
       "/services": nav.services,
+      "/products": nav.products,
       "/use-cases": nav.useCases,
       "/contact": nav.contact,
       "/careers": nav.careers,

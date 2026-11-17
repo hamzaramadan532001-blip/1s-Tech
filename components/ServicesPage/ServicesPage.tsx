@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { IconType } from "react-icons";
 import {
@@ -18,15 +18,19 @@ import {
   FaHeadset,
   FaPencilRuler,
   FaSatellite,
-  FaSatelliteDish,
   FaSearch,
   FaShuttleVan,
   FaLayerGroup,
+  FaMicrochip,
+  FaCheckCircle,
+  FaTimes,
+  FaListUl,
 } from "react-icons/fa";
 import { GiDeliveryDrone } from "react-icons/gi";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { useReveal } from "@/lib/useReveal";
 import { servicesContent, type ServiceCategory } from "@/lib/content/services";
+import { serviceDetails, detailLabels } from "@/lib/content/serviceDetails";
 import { CtaBanner, DirArrow, PageHero, SectionHead, kit } from "@/components/PageKit/PageKit";
 import styles from "./ServicesPage.module.css";
 
@@ -44,7 +48,7 @@ const serviceIcons: Record<string, IconType> = {
   mms: FaShuttleVan,
   photogrammetry: FaCameraRetro,
   geoai: FaBrain,
-  gps: FaSatelliteDish,
+  "ai-solutions": FaMicrochip,
 };
 
 const processIcons: IconType[] = [FaSearch, FaPencilRuler, FaCogs, FaHeadset];
@@ -57,6 +61,25 @@ export default function ServicesPage() {
   const c = servicesContent[locale];
   const [filter, setFilter] = useState<Filter>("all");
   const rootRef = useReveal(kit.visible, `${locale}-${filter}`);
+
+  const details = serviceDetails[locale];
+  const labels = detailLabels[locale];
+  const [openId, setOpenId] = useState<string | null>(null);
+  const openService = openId ? c.items.find((s) => s.id === openId) : undefined;
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+
+  // إغلاق النافذة بزر Esc + منع سكرول الصفحة وهي مفتوحة
+  useEffect(() => {
+    if (!openId) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenId(null);
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    closeBtnRef.current?.focus();
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [openId]);
 
   const visible = filter === "all" ? c.items : c.items.filter((s) => s.category === filter);
   const countFor = (f: Filter) =>
@@ -128,6 +151,19 @@ export default function ServicesPage() {
                   <span className={styles.tag}>{c.categories[s.category]}</span>
                   <h3 className={styles.title}>{s.title}</h3>
                   <p className={styles.desc}>{s.description}</p>
+                  {details[s.id] && (
+                    <button
+                      type="button"
+                      className={styles.detailsBtn}
+                      onClick={() => setOpenId(s.id)}
+                      aria-haspopup="dialog"
+                    >
+                      <FaListUl />
+                      <span>
+                        {labels.open} ({details[s.id].length})
+                      </span>
+                    </button>
+                  )}
                 </li>
               );
             })}
@@ -167,6 +203,55 @@ export default function ServicesPage() {
       </section>
 
       <CtaBanner title={c.ctaTitle} text={c.ctaText} cta={c.ctaButton} />
+
+      {/* ================= Service details dialog ================= */}
+      {openService && details[openService.id] && (
+        <div className={styles.overlay} onClick={() => setOpenId(null)}>
+          <div
+            className={styles.dialog}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="service-dialog-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={styles.dialogHead}>
+              <span className={`${kit.iconBox} ${kit.iconSolid}`}>
+                {(() => {
+                  const Icon = serviceIcons[openService.id];
+                  return <Icon />;
+                })()}
+              </span>
+              <div>
+                <span className={styles.dialogEyebrow}>{labels.title}</span>
+                <h3 id="service-dialog-title" className={styles.dialogTitle}>
+                  {openService.title}
+                </h3>
+              </div>
+              <button
+                ref={closeBtnRef}
+                type="button"
+                className={styles.closeBtn}
+                onClick={() => setOpenId(null)}
+                aria-label={labels.close}
+              >
+                <FaTimes />
+              </button>
+            </div>
+            <ul className={styles.detailList}>
+              {details[openService.id].map((d, i) => (
+                <li key={i}>
+                  <FaCheckCircle className={styles.detailCheck} />
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+            <Link href="/contact" className={kit.btnPrimary} onClick={() => setOpenId(null)}>
+              <span>{c.ctaButton}</span>
+              <DirArrow />
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -68,14 +68,14 @@ export const servicesContent: Record<Locale, ServicesContent> = {
       {
         id: "consulting",
         category: "platforms",
-        title: "الاستشارات والتخطيط الاستراتيجي لنظم المعلومات الجغرافية",
+        title: "الاستشارات والبرامج الاستراتيجية في نظم المعلومات الجغرافية",
         description:
           "نساعد المؤسسات على تخطيط وتقييم وتنفيذ استراتيجيات GIS فعّالة تتوافق مع أهدافها التشغيلية والاستراتيجية.",
       },
       {
         id: "app-dev",
         category: "platforms",
-        title: "تطوير تطبيقات GIS وتكامل المنصات",
+        title: "تطوير التطبيقات ودمج المنصات الجغرافية المكانية",
         description:
           "نصمم ونطوّر تطبيقات ومنصات جغرافية مخصّصة تتكامل بسلاسة مع أنظمتكم الحالية.",
       },
@@ -89,21 +89,21 @@ export const servicesContent: Record<Locale, ServicesContent> = {
       {
         id: "remote-sensing",
         category: "data",
-        title: "الاستشعار عن بُعد وصور الأقمار الصناعية",
+        title: "حلول الاستشعار عن بُعد وصور الأقمار الصناعية",
         description:
           "نعالج ونحلل صور الأقمار الصناعية والصور الجوية لرصد التغيرات المكانية وتقييمها وفهمها.",
       },
       {
         id: "digital-twin",
         category: "platforms",
-        title: "نظم المعلومات الجغرافية ثلاثية الأبعاد والتوأم الرقمي",
+        title: "حلول نظم المعلومات الجغرافية ثلاثية الأبعاد والتوأم الرقمي",
         description:
           "نطوّر نماذج مكانية ثلاثية الأبعاد وتوائم رقمية متقدمة لدعم التخطيط الذكي وإدارة الأصول.",
       },
       {
         id: "urban-planning",
         category: "planning",
-        title: "التخطيط العمراني وإدارة الأراضي",
+        title: "التخطيط الحضري وإدارة الأراضي والعقارات",
         description:
           "ندعم التنمية الحضرية وحوكمة الأراضي المعتمدة على البيانات باستخدام الذكاء الجغرافي المكاني.",
       },
@@ -117,44 +117,44 @@ export const servicesContent: Record<Locale, ServicesContent> = {
       {
         id: "drone",
         category: "capture",
-        title: "المسح ورسم الخرائط بالطائرات بدون طيار",
+        title: "حلول المسح الجوي ورسم الخرائط بالطائرات بدون طيار",
         description:
           "نوفّر خدمات مسح جوي ورسم خرائط عالية الدقة باستخدام تقنيات الدرون المتقدمة.",
       },
       {
         id: "laser-scanning",
         category: "capture",
-        title: "المسح الليزري الأرضي ثلاثي الأبعاد",
+        title: "حلول المسح الليزري الأرضي ثلاثي الأبعاد",
         description:
           "نقدّم عمليات مسح ثلاثية الأبعاد دقيقة لأغراض التوثيق والنمذجة وتطبيقات التوأم الرقمي.",
       },
       {
         id: "mms",
         category: "capture",
-        title: "أنظمة المسح المتحرك (MMS)",
+        title: "حلول نظم الخرائط المتنقلة (MMS)",
         description:
           "نجمع البيانات المكانية بدقة عالية أثناء الحركة لخدمة تطبيقات البنية التحتية والطرق والنقل.",
       },
       {
         id: "photogrammetry",
         category: "capture",
-        title: "الفوتوغرامتري (التصوير المساحي)",
+        title: "حلول التصوير الجوي وإنتاج النماذج",
         description:
           "نوفّر بيانات مكانية تفصيلية من خلال الفوتوغرامتري الأرضي والجوي لإنتاج نماذج ثلاثية الأبعاد دقيقة.",
       },
       {
         id: "geoai",
         category: "data",
-        title: "الذكاء الجغرافي البيئي وGeoAI",
+        title: "الذكاء الاصطناعي في المعلومات الجغرافية والمراقبة البيئية",
         description:
           "نطبّق تقنيات الذكاء الاصطناعي على البيانات المكانية البيئية للحصول على تحليلات وتوقعات أكثر ذكاءً.",
       },
       {
-        id: "gps",
-        category: "capture",
-        title: "حلول اضطرابات GPS وتحديد المواقع",
+        id: "ai-solutions",
+        category: "data",
+        title: "حلول جغرافية مكانية مدعومة بالذكاء الاصطناعي",
         description:
-          "نقدّم حلولًا متقدمة لتحديد المواقع بدقة في البيئات التي تتعطل فيها إشارات GPS مثل الأنفاق والمناطق الحضرية الكثيفة.",
+          "نوظّف الذكاء الاصطناعي لاستخلاص معلومات ورؤى أعمق من البيانات الجغرافية المكانية، ودعم اتخاذ قرارات أسرع وأدق.",
       },
     ],
     processEyebrow: "منهجية العمل",
@@ -211,7 +211,7 @@ export const servicesContent: Record<Locale, ServicesContent> = {
       {
         id: "app-dev",
         category: "platforms",
-        title: "GIS Application Development & Platform Integration",
+        title: "GIS Application Development & Geospatial Platform Integration",
         description:
           "We design and build custom geospatial applications and platforms that integrate seamlessly with your existing systems.",
       },
@@ -225,7 +225,7 @@ export const servicesContent: Record<Locale, ServicesContent> = {
       {
         id: "remote-sensing",
         category: "data",
-        title: "Remote Sensing & Satellite Imagery",
+        title: "Remote Sensing & Satellite Imagery Solutions",
         description:
           "We process and analyze satellite and aerial imagery to monitor, assess and understand spatial change.",
       },
@@ -239,7 +239,7 @@ export const servicesContent: Record<Locale, ServicesContent> = {
       {
         id: "urban-planning",
         category: "planning",
-        title: "Urban Planning & Land Management",
+        title: "Urban Planning & Land and Parcel Management",
         description:
           "We support data-driven urban development and land governance using geospatial intelligence.",
       },
@@ -253,21 +253,21 @@ export const servicesContent: Record<Locale, ServicesContent> = {
       {
         id: "drone",
         category: "capture",
-        title: "Drone Surveying & Mapping",
+        title: "Drone Surveying & Mapping Solutions",
         description:
           "High-precision aerial surveying and mapping using advanced drone technology.",
       },
       {
         id: "laser-scanning",
         category: "capture",
-        title: "3D Terrestrial Laser Scanning",
+        title: "3D Terrestrial Laser Scanning Solutions",
         description:
           "Accurate 3D scanning for documentation, modeling and digital twin applications.",
       },
       {
         id: "mms",
         category: "capture",
-        title: "Mobile Mapping Systems (MMS)",
+        title: "Mobile Mapping Systems (MMS) Solutions",
         description:
           "High-accuracy spatial data captured on the move for infrastructure, roads and transportation applications.",
       },
@@ -281,16 +281,16 @@ export const servicesContent: Record<Locale, ServicesContent> = {
       {
         id: "geoai",
         category: "data",
-        title: "Environmental Geospatial Intelligence & GeoAI",
+        title: "Environmental Geospatial Intelligence & GeoAI Solutions",
         description:
           "We apply artificial intelligence to environmental spatial data for smarter analytics and forecasting.",
       },
       {
-        id: "gps",
-        category: "capture",
-        title: "GPS Disruption & Positioning Solutions",
+        id: "ai-solutions",
+        category: "data",
+        title: "AI-Powered Geospatial Solutions",
         description:
-          "Advanced solutions for accurate positioning where GPS signals are disrupted, such as tunnels and dense urban areas.",
+          "We leverage artificial intelligence to unlock deeper insights from geospatial data and support faster, more accurate decisions.",
       },
     ],
     processEyebrow: "How We Work",

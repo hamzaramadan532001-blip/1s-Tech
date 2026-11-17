@@ -95,6 +95,33 @@
   margin-top: 16px;
 }
 
+/* نقاط "عن تقني الأولى" من الملف التعريفي */
+.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bullets li {
+  position: relative;
+  padding-inline-start: 22px;
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--text-muted);
+}
+
+.bullets li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.75em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
 .gradientText {
   background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
   -webkit-background-clip: text;

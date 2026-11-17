@@ -50,6 +50,7 @@ export default function Header() {
     { key: "home", href: "/", label: t.nav.home },
     { key: "about", href: "/about", label: t.nav.about },
     { key: "services", href: "/services", label: t.nav.services },
+    { key: "products", href: "/products", label: t.nav.products },
     { key: "useCases", href: "/use-cases", label: t.nav.useCases },
     { key: "contact", href: "/contact", label: t.nav.contact },
     { key: "careers", href: "/careers", label: t.nav.careers },

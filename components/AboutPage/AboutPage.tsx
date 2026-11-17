@@ -22,8 +22,14 @@ import {
   FaBullseye,
   FaSeedling,
 } from "react-icons/fa";
-import LogoMarquee from "@/components/LogoMarquee/LogoMarquee";
+import {
+  ClientsSection,
+  PartnersStrip,
+  ProjectsSection,
+  TeamSection,
+} from "@/components/CompanySections/CompanySections";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { companyContent } from "@/lib/content/company";
 import styles from "./AboutPage.module.css";
 
 const PROFILE_PDF = {
@@ -81,6 +87,7 @@ function useReveal(dep: unknown) {
 export default function AboutPage() {
   const { t, locale } = useLanguage();
   const a = t.about;
+  const company = companyContent[locale];
   const Arrow = locale === "ar" ? FaArrowLeft : FaArrowRight;
   const rootRef = useReveal(locale);
 
@@ -172,8 +179,11 @@ export default function AboutPage() {
             <div className={styles.storyText} data-reveal>
               <span className={styles.eyebrow}>{a.storyEyebrow}</span>
               <h2 className={styles.h2}>{a.storyTitle}</h2>
-              <p className={styles.body}>{a.storyP1}</p>
-              <p className={styles.body}>{a.storyP2}</p>
+              <ul className={styles.bullets}>
+                {company.aboutBullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
             </div>
 
             <ul className={styles.pillars}>
@@ -196,6 +206,8 @@ export default function AboutPage() {
               })}
             </ul>
           </div>
+
+          <PartnersStrip />
         </div>
       </section>
 
@@ -264,18 +276,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= Partners ================= */}
-      <section className={`${styles.section} ${styles.partners}`}>
-        <div className={styles.container}>
-          <header className={styles.sectionHead} data-reveal>
-            <h2 className={styles.h2}>{a.partnersTitle}</h2>
-            <p className={styles.sectionLead}>{a.partnersLead}</p>
-          </header>
-        </div>
-        <div className={styles.marqueeWrap}>
-          <LogoMarquee />
-        </div>
-      </section>
+      {/* ================= From the company profile ================= */}
+      <ProjectsSection alt />
+      <ClientsSection />
+      <TeamSection alt />
 
       {/* ================= Closing CTA ================= */}
       <section className={styles.section}>

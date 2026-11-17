@@ -5,6 +5,7 @@ export interface Translations {
     home: string;
     about: string;
     services: string;
+    products: string;
     useCases: string;
     contact: string;
     careers: string;
@@ -63,6 +64,7 @@ export const translations: Record<Locale, Translations> = {
       home: "الرئيسية",
       about: "من نحن",
       services: "الخدمات",
+      products: "المنتجات",
       useCases: "حالات الاستخدام",
       contact: "تواصل معنا",
       careers: "التوظيف",
@@ -110,7 +112,7 @@ export const translations: Record<Locale, Translations> = {
       goalsEyebrow: "أهدافنا",
       goalsTitle: "إلى أين نتجه",
       goalsStatement:
-        "نسعى إلى تحويل البيانات الجغرافية إلى رؤى ذكية وقيمة مضافة، تمكّن شركاءنا من التخطيط بكفاءة أعلى، واتخاذ قرارات أدق، وتحقيق أثر مستدام يدعم الحاضر ويصنع المستقبل.",
+        "نسعى إلى تحويل البيانات الجغرافية إلى رؤى ذكية ذات قيمة مضافة من خلال حلول مبتكرة، مما يمكّن شركاءنا من التخطيط بشكل أكثر كفاءة، واتخاذ قرارات مستنيرة، وتحقيق أثر مستدام يدعم الحاضر والمستقبل.",
       goals: [
         { title: "تخطيط بكفاءة أعلى", text: "بيانات موثوقة تختصر الوقت والتكلفة" },
         { title: "قرارات أدق", text: "رؤى مكانية واضحة تدعم صنّاع القرار" },
@@ -122,19 +124,19 @@ export const translations: Record<Locale, Translations> = {
       values: [
         {
           title: "الابتكار",
-          text: "نبتكر حلولًا جيومكانية ذكية باستخدام أحدث التقنيات لتحويل البيانات إلى أدوات لاتخاذ القرار.",
+          text: "نعتمد حلولًا جغرافية ذكية توظّف أحدث التقنيات لتحويل البيانات إلى أدوات فعّالة تدعم التخطيط واتخاذ القرارات.",
         },
         {
-          title: "الموثوقية",
-          text: "نبني شراكات طويلة الأمد قائمة على الشفافية والالتزام، مع أعلى معايير الدقة والجودة.",
+          title: "الاحترافية",
+          text: "نبني شراكات طويلة الأمد قائمة على الشفافية والالتزام وأعلى معايير الدقة والجودة.",
         },
         {
-          title: "الشراكة",
-          text: "نؤمن بأن النجاح يتحقق بالعمل جنبًا إلى جنب مع عملائنا، كشركاء حقيقيين في نجاحهم.",
+          title: "التعاون",
+          text: "نؤمن بأن نجاحنا الحقيقي يتحقق من خلال التعاون الوثيق مع عملائنا وشركائنا.",
         },
         {
           title: "روح الفريق",
-          text: "قوتنا في فريقنا؛ خبراء يتعاونون باستمرار لتحقيق أفضل النتائج لعملائنا.",
+          text: "نؤمن بقوة فريقنا، ونعمل معًا بشكل مستمر لتحقيق أفضل النتائج لعملائنا.",
         },
       ],
       partnersTitle: "شركاء النجاح",
@@ -149,6 +151,7 @@ export const translations: Record<Locale, Translations> = {
       home: "Home",
       about: "About Us",
       services: "Services",
+      products: "Products",
       useCases: "Use Cases",
       contact: "Contact Us",
       careers: "Careers",
@@ -196,7 +199,7 @@ export const translations: Record<Locale, Translations> = {
       goalsEyebrow: "Our Goals",
       goalsTitle: "Where we are heading",
       goalsStatement:
-        "We strive to turn geographic data into smart insights and added value — enabling our partners to plan more efficiently, decide more accurately, and achieve sustainable impact that supports the present and shapes the future.",
+        "We strive to transform geographic data into smart insights and added value through innovative solutions, enabling our partners to plan more efficiently, make informed decisions, and achieve a sustainable impact in support of the present and the future.",
       goals: [
         { title: "More efficient planning", text: "Reliable data that saves time and cost" },
         { title: "More accurate decisions", text: "Clear spatial insight for decision-makers" },
@@ -208,19 +211,19 @@ export const translations: Record<Locale, Translations> = {
       values: [
         {
           title: "Innovation",
-          text: "We create smart geospatial solutions using the latest technologies, turning data into decision-making tools.",
+          text: "We adopt smart geospatial solutions that leverage the latest technologies to transform data into effective tools that support planning and decision-making.",
         },
         {
-          title: "Reliability",
-          text: "We build long-term partnerships founded on transparency and commitment, with the highest standards of accuracy and quality.",
+          title: "Professionalism",
+          text: "We build long-term partnerships based on transparency, commitment, and the highest standards of accuracy and quality.",
         },
         {
-          title: "Partnership",
-          text: "We believe success comes from working side by side with our clients, as true partners in their success.",
+          title: "Collaboration",
+          text: "We believe that our true success is achieved through close collaboration with our clients and partners.",
         },
         {
           title: "Team Spirit",
-          text: "Our strength is our team: experts who collaborate continuously to deliver the best results for our clients.",
+          text: "We believe in the strength of our team, working together continuously to achieve the best results for our clients.",
         },
       ],
       partnersTitle: "Our Partners",
